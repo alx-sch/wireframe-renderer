@@ -121,7 +121,7 @@ int	main(int argc, char **argv)
 	init_mlx(&fdf);
 	project_3d_to_2d(&fdf);
 	render_map_grid(&fdf);
-	mlx_key_hook(fdf.win, &handle_keypress, &fdf);
-	mlx_hook(fdf.win, DestroyNotify, 0, &handle_x, &fdf);
+	mlx_key_hook(fdf.win, (int (*)(int, void *))&handle_keypress, &fdf);
+	mlx_hook(fdf.win, DestroyNotify, 0, (int (*)())&handle_x, &fdf);
 	mlx_loop(fdf.mlx);
 }

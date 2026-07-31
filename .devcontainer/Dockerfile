@@ -5,6 +5,7 @@ RUN apt-get update && apt-get install -y \
     gcc \
     make \
     git \
+    bc \
     libx11-dev \
     libxext-dev \
     x11-apps \
@@ -16,5 +17,9 @@ RUN apt-get update && apt-get install -y \
 
 COPY start-vnc.sh /usr/local/bin/start-vnc.sh
 RUN chmod +x /usr/local/bin/start-vnc.sh
+
+# Redirect root URL to the noVNC viewer
+RUN echo '<html><head><meta http-equiv="refresh" content="0;url=vnc_lite.html?autoconnect=true"></head></html>' \
+    > /usr/share/novnc/index.html
 
 ENV DISPLAY=:99
