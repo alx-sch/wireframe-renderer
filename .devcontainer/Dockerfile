@@ -8,6 +8,7 @@ RUN apt-get update && apt-get install -y \
     bc \
     libx11-dev \
     libxext-dev \
+    libbsd-dev \
     x11-apps \
     xvfb \
     x11vnc \

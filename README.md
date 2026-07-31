@@ -4,9 +4,9 @@
     <img src=".assets/fdfe.png" alt="fdf badge" width="200" />
 </p>
 
-A 3D wireframe terrain renderer written in C. Reads heightmap files (`.fdf`) and renders them as isometric wireframe projections using MiniLibX. Supports per-vertex color, automatic scaling and centering, and runs on both Linux and macOS.
+A 3D wireframe terrain renderer written in C. Reads heightmap files (`.fdf`) and renders them as wireframe projections using MiniLibX. Supports per-vertex color, automatic scaling and centering, and runs on both Linux and macOS.
 
-- **Isometric projection** at a configurable angle (default 30°)
+- **Configurable projection angle** — defaults to 30° (isometric), but any angle can be set at compile time
 - **Bresenham's line algorithm** for efficient integer-only rasterization
 - **Per-vertex hex color** support (`0xRRGGBB`) with a configurable default wireframe color
 - **Auto-scaling and centering** — fits any map to the window regardless of dimensions
@@ -110,7 +110,7 @@ The program reads the `.fdf` file in three passes:
 
 ### Isometric Projection
 
-The core of fdf is projecting 3D grid coordinates $(x, y, z)$ onto a 2D image plane using an isometric transformation. For a given angle $\theta$ (default 30°) and a z-scale factor $s$:
+The core of fdf is projecting 3D grid coordinates $(x, y, z)$ onto a 2D image plane. The projection angle $\theta$ is configurable at compile time (`ANGLE` in `settings.h`) — at 30° this produces a standard isometric view, but other values yield different axonometric projections. For a given angle $\theta$ and a z-scale factor $s$:
 
 $$x' = (x - y) \cdot \cos(\theta)$$
 
@@ -186,7 +186,7 @@ Pixel writes go directly into the image buffer via pointer arithmetic rather tha
 
 <p align="center">
     <img src=".assets/fdf_example.png" alt="fdf rendering of a colored terrain map" width="600" />
-    <br><span>Isometric wireframe render of a terrain heightmap with per-vertex color encoding.</span>
+    <br><span>Wireframe render of <code>maps/t1.fdf</code> — a 200x200 terrain with per-vertex color encoding (blue → green → red → white by elevation).</span>
 </p>
 
 ---
