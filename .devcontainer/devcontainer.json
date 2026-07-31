@@ -1,0 +1,22 @@
+{
+	"name": "fdf",
+	"build": {
+		"dockerfile": "Dockerfile"
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"ms-vscode.cpptools",
+				"ms-vscode.makefile-tools"
+			]
+		}
+	},
+	"postCreateCommand": "make",
+	"forwardPorts": [6080],
+	"portsAttributes": {
+		"6080": {
+			"label": "noVNC",
+			"onAutoForward": "openPreview"
+		}
+	}
+}
