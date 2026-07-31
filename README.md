@@ -122,7 +122,7 @@ $$y' = (x + y) \cdot \sin(\theta) - z \cdot s$$
 This creates the characteristic "diamond" view where both the x- and y-axes recede at equal angles from the horizontal. The z-scale factor ($s = 0.08$ by default) controls how exaggerated the terrain height appears — without it, peaks on high-relief maps would dominate the projection.
 
 <p align="center">
-    <img src=".assets/iso-proj.png"alt="Isometric projection axes" width="600" />
+    <img src=".assets/iso-proj.png"alt="Isometric projection axes" width="400" />
     <br><span>Isometric projection (left) maps three axes onto a 2D plane at equal angles.</span>
 </p>
 
