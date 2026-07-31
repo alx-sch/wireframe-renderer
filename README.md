@@ -6,18 +6,23 @@
 
 A 3D wireframe terrain renderer written in C. Reads heightmap files (`.fdf`) and renders them as wireframe projections using MiniLibX. Supports per-vertex color, automatic scaling and centering, and runs on both Linux and macOS.
 
-- **Configurable projection angle** — defaults to 30° (isometric), but any angle can be set at compile time
-- **Bresenham's line algorithm** for efficient integer-only rasterization
-- **Per-vertex hex color** support (`0xRRGGBB`) with a configurable default wireframe color
-- **Auto-scaling and centering** — fits any map to the window regardless of dimensions
-- **Cross-platform** — builds on Linux (X11) and macOS
+- **Configurable projection angle** — Defaults to 30° (isometric), but any angle can be set at compile time (dimetric).
+- **Bresenham's line algorithm** for efficient integer-only rasterization.
+- **Per-vertex hex color** support (`0xRRGGBB`) with a configurable default wireframe color.
+- **Auto-scaling and centering** — Fits any map to the window regardless of dimensions.
+- **Cross-platform** — Builds on Linux (X11) and macOS.
+
+<p align="center">
+    <img src=".assets/fdf_example.png" alt="fdf rendering of a colored terrain map" width="600" />
+    <br><span>Wireframe render of <code>maps/t1.fdf</code>: A 200x200 terrain with per-vertex color encoding (blue → green → red → white by elevation).</span>
+</p>
 
 ---
 
 ## Table of Contents
 
-- [Getting Started](#-getting-started)
-- [Codespaces / Devcontainer](#-codespaces--devcontainer)
+- [Getting Started](#getting-started)
+- [Codespaces / Devcontainer](#codespaces--devcontainer)
 - [The `.fdf` File Format](#the-fdf-file-format)
 - [How It Works](#how-it-works)
   - [Parsing](#parsing)
@@ -25,8 +30,6 @@ A 3D wireframe terrain renderer written in C. Reads heightmap files (`.fdf`) and
   - [Scaling and Centering](#scaling-and-centering)
   - [Bresenham's Line Algorithm](#bresenhams-line-algorithm)
   - [Rendering Pipeline](#rendering-pipeline)
-- [Screenshot](#screenshot)
-- [Controls](#controls)
 - [Acknowledgements](#acknowledgements)
 - [References](#references)
 
@@ -49,6 +52,8 @@ A 3D wireframe terrain renderer written in C. Reads heightmap files (`.fdf`) and
    ```bash
    ./fdf maps/mars.fdf
    ```
+
+4. Close the window and exit the rendering with `Esc` or the Window `X` button.
 
 > **Requirements:** `cc`, `make`, `git`, X11 development libraries (`libxext-dev`, `libx11-dev` on Debian/Ubuntu).
 
@@ -179,24 +184,6 @@ The complete rendering sequence:
 3. **Display** — push the completed image buffer to the window with a single `mlx_put_image_to_window` call.
 
 Pixel writes go directly into the image buffer via pointer arithmetic rather than calling `mlx_pixel_put` per pixel, which avoids the overhead of repeated X11 draw calls.
-
----
-
-## Screenshot
-
-<p align="center">
-    <img src=".assets/fdf_example.png" alt="fdf rendering of a colored terrain map" width="600" />
-    <br><span>Wireframe render of <code>maps/t1.fdf</code> — a 200x200 terrain with per-vertex color encoding (blue → green → red → white by elevation).</span>
-</p>
-
----
-
-## Controls
-
-| Key | Action |
-| :--- | :--- |
-| `Esc` | Close window and exit |
-| Window `X` button | Close window and exit |
 
 ---
 
