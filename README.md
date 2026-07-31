@@ -32,7 +32,7 @@ A 3D wireframe terrain renderer written in C. Reads heightmap files (`.fdf`) and
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 1. Clone the repository:
    ```bash
@@ -54,7 +54,7 @@ A 3D wireframe terrain renderer written in C. Reads heightmap files (`.fdf`) and
 
 ---
 
-## 🐳 Codespaces / Devcontainer
+## Codespaces / Devcontainer
 
 This repo includes a devcontainer configuration — open it in GitHub Codespaces (or any devcontainer-compatible editor) and it will build automatically with all dependencies.
 
