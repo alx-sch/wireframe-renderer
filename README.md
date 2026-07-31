@@ -1,7 +1,7 @@
 # Wireframe Renderer
 
 <p align="center">
-    <img src=".assets/fdfe.png" alt="fdf badge" width="400" />
+    <img src=".assets/fdfe.png" alt="fdf badge" width="200" />
 </p>
 
 A 3D wireframe terrain renderer written in C. Reads heightmap files (`.fdf`) and renders them as isometric wireframe projections using MiniLibX. Supports per-vertex color, automatic scaling and centering, and runs on both Linux and macOS.
@@ -122,8 +122,8 @@ $$y' = (x + y) \cdot \sin(\theta) - z \cdot s$$
 This creates the characteristic "diamond" view where both the x- and y-axes recede at equal angles from the horizontal. The z-scale factor ($s = 0.08$ by default) controls how exaggerated the terrain height appears — without it, peaks on high-relief maps would dominate the projection.
 
 <p align="center">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Axonometric_projection.svg/250px-Axonometric_projection.svg.png" alt="Isometric projection axes" width="200" />
-    <br><span>Isometric projection maps three axes onto a 2D plane at equal angles.</span>
+    <img src=".assets/iso-proj.png"alt="Isometric projection axes" width="200" />
+    <br><span>Isometric projection (left) maps three axes onto a 2D plane at equal angles.</span>
 </p>
 
 **Why subtract in $x'$ and add in $y'$?** The $(x - y)$ term separates the x and y axes horizontally (one goes left, one goes right), while $(x + y)$ combines them vertically (both recede "into" the screen). The $-z \cdot s$ lifts elevated points upward on screen.
