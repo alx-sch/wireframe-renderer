@@ -12,6 +12,7 @@
 		}
 	},
 	"postCreateCommand": "make",
+	"postStartCommand": "start-vnc.sh",
 	"forwardPorts": [6080],
 	"portsAttributes": {
 		"6080": {

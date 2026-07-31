@@ -58,14 +58,11 @@ A 3D wireframe terrain renderer written in C. Reads heightmap files (`.fdf`) and
 
 This repo includes a devcontainer configuration — open it in GitHub Codespaces (or any devcontainer-compatible editor) and it will build automatically with all dependencies.
 
-Since fdf renders to an X11 window, the devcontainer provides a virtual display via **noVNC**:
+Since fdf renders to an X11 window, the devcontainer automatically starts a virtual display with **noVNC**:
 
 1. Open the repo in Codespaces (or `Dev Containers: Reopen in Container` locally).
-2. After the container builds, start the virtual display:
-   ```bash
-   start-vnc.sh
-   ```
-3. Open the forwarded port **6080** (noVNC web client) — Codespaces will prompt you automatically.
+2. The container builds, compiles fdf, and starts the virtual display automatically.
+3. Open the forwarded port **6080** (noVNC web client) — Codespaces will prompt you.
 4. Run fdf:
    ```bash
    ./fdf maps/mars.fdf
